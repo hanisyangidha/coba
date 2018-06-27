@@ -11,9 +11,14 @@ $output="";
 if ($messageFromUser=="/start") {
 	$output = urlencode("Pilih Fitur\n /check");
 }if ($messageFromUser=="/check") {
-	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php','?var=var');
+	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
 	$efromdb= json_decode($fromdb);
-	$output = $efromdb->Status_permintaan;
+	$output = urlencode(
+		"status permintaan : ".$efromdb->Status_permintaan."\n".
+		"nama teknisi : ".$efromdb->STeknisi."\n".
+		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
+		"tindak lanjut : ".$efromdb->Tindak_Lanjut
+	);
 }else{
 	$output="Perintah Tidak diketahui";
 }
