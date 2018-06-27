@@ -15,7 +15,7 @@ if ($messageFromUser=="/start") {
 	$efromdb= json_decode($fromdb);
 	$output = urlencode(
 		"status permintaan : ".$efromdb->Status_permintaan."\n".
-		"nama teknisi : ".$efromdb->STeknisi."\n".
+		"nama teknisi : ".$efromdb->Teknisi."\n".
 		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
 		"tindak lanjut : ".$efromdb->Tindak_Lanjut
 	);
