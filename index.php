@@ -13,8 +13,7 @@ if ($messageFromUser=="/start") {
 }if ($messageFromUser=="/check") {
 	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
 	$efromdb= json_decode($fromdb);
-
-	$output = $efromdb['Data'][0]['Status_permintaan'];
+	$output = $efromdb['Data'][0]->Status_permintaan;
 }else{
 	$output="Perintah Tidak diketahui";
 }
