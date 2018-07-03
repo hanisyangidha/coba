@@ -12,7 +12,7 @@ $output="";
 if ($messageFromUser=="/start") {
 	$output = urlencode("Pilih Fitur\n /check");
 }
-if ($messageFromUser=="/check") {
+else if ($messageFromUser=="/check") {
 	$_SESSION["check"]=1;
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
 }
