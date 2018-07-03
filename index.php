@@ -17,7 +17,7 @@ if ($messageFromUser=="/check") {
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
 }
 else{
-	if (isset($_SESSION["check"])) {
+	if (isset($_SESSION["check"]==1)) {
 		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/readone.php?myir='.$messageFromUser);
 		$efromdb= json_decode($fromdb);
 		$output = urlencode(
