@@ -12,8 +12,34 @@ if ($messageFromUser=="/start") {
 	$output = urlencode("Pilih Fitur\n /check");
 }
 if ($messageFromUser=="/check") {
+	$_SESSION["check"]=1;
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
 }	
+else{
+	if (isset($_SESSION["check"])) {
+		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/readone.php?myir='.$messageFromUser);
+		$efromdb= json_decode($fromdb);
+		$output = urlencode(
+			"myir : ".$efromdb->MYIR."\n".
+			"nomer sc : ".$efromdb->No_SC."\n".
+			"nomer internet : ".$efromdb->No_Internet."\n".
+			"nama pelanggan : ".$efromdb->Nama_Pelanggan."\n".
+			"alamat instalasi : ".$efromdb->Alamat_Instalasi."\n".
+			"tipe permintaan : ".$efromdb->Type_Permintaan."\n".
+			"kcontact : ".$efromdb->Kcontact."\n".
+			"tanggal input : ".$efromdb->Tanggal_Input
+
+		);
+		// ."\n".
+		// "status permintaan : ".$efromdb->Status_permintaan."\n".
+		// "nama teknisi : ".$efromdb->Teknisi."\n".
+		// "keterangan : ".$efromdb->Keterangan_Teknisi."\n".
+		// "tindak lanjut : ".$efromdb->Tindak_Lanjut
+		session_destroy();
+	}else{
+		$output="Perintah Tidak diketahui";
+	}
+}
 /*if ($messageFromUser==""){
 	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
 	$efromdb= json_decode($fromdb);
