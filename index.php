@@ -10,10 +10,21 @@ $messageFromUser = $update["message"]["text"];
 $output="";
 if ($messageFromUser=="/start") {
 	$output = urlencode("Pilih Fitur\n /check");
-}if ($messageFromUser=="/check") {
+}
+if ($messageFromUser=="/check") {
+	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
+}	
+if ($messageFromUser=="")	
 	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
 	$efromdb= json_decode($fromdb);
 	$output = urlencode(
+		"myir : ".$efromdb->MYIR."\n".
+		"nomer sc : ".$efromdb->No_SC."\n".
+		"nomer internet : ".$efromdb->No_Internet."\n".
+		"alamat instalasi : ".$efromdb->Alamat_Instalasi."\n".
+		"tipe permintaan : ".$efromdb->Type_Permintaan."\n".
+		"kcontact : ".$efromdb->Kcontact."\n".
+		"tanggal input : ".$efromdb->Tanggal_Input."\n".
 		"status permintaan : ".$efromdb->Status_permintaan."\n".
 		"nama teknisi : ".$efromdb->Teknisi."\n".
 		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
