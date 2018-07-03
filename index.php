@@ -14,7 +14,7 @@ if ($messageFromUser=="/start") {
 if ($messageFromUser=="/check") {
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
 }	
-if ($messageFromUser=="")	
+/*if ($messageFromUser==""){
 	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
 	$efromdb= json_decode($fromdb);
 	$output = urlencode(
@@ -30,9 +30,9 @@ if ($messageFromUser=="")
 		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
 		"tindak lanjut : ".$efromdb->Tindak_Lanjut
 	);
-}else{
+else{
 	$output="Perintah Tidak diketahui";
-}
+}*/
 $reply = $output;
 // compose reply
 //cek json
