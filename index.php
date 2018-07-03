@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('BOT_TOKEN','585691080:AAEmTxrSye2KZNW4ohSewbbM4DFIaGwdKpw');
 define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 // read incoming info and grab the chatID
@@ -14,7 +15,7 @@ if ($messageFromUser=="/start") {
 if ($messageFromUser=="/check") {
 	$_SESSION["check"]=1;
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
-}	
+}
 else{
 	if (isset($_SESSION["check"])) {
 		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/readone.php?myir='.$messageFromUser);
@@ -40,25 +41,6 @@ else{
 		$output="Perintah Tidak diketahui";
 	}
 }
-/*if ($messageFromUser==""){
-	$fromdb = file_get_contents('https://hunhani.000webhostapp.com/read.php');
-	$efromdb= json_decode($fromdb);
-	$output = urlencode(
-		"myir : ".$efromdb->MYIR."\n".
-		"nomer sc : ".$efromdb->No_SC."\n".
-		"nomer internet : ".$efromdb->No_Internet."\n".
-		"alamat instalasi : ".$efromdb->Alamat_Instalasi."\n".
-		"tipe permintaan : ".$efromdb->Type_Permintaan."\n".
-		"kcontact : ".$efromdb->Kcontact."\n".
-		"tanggal input : ".$efromdb->Tanggal_Input."\n".
-		"status permintaan : ".$efromdb->Status_permintaan."\n".
-		"nama teknisi : ".$efromdb->Teknisi."\n".
-		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
-		"tindak lanjut : ".$efromdb->Tindak_Lanjut
-	);
-else{
-	$output="Perintah Tidak diketahui";
-}*/
 $reply = $output;
 // compose reply
 //cek json
