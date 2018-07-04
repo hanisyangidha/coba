@@ -27,15 +27,15 @@ else{
 			"alamat instalasi : ".$efromdb->Alamat_Instalasi."\n".
 			"tipe permintaan : ".$efromdb->Type_Permintaan."\n".
 			"kcontact : ".$efromdb->Kcontact."\n".
-			"tanggal input : ".$efromdb->Tanggal_Input
+			"tanggal input : ".$efromdb->Tanggal_Input."\n".
+		"status permintaan : ".$efromdb->Status_permintaan."\n".
+		"nama teknisi : ".$efromdb->Teknisi."\n".
+		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
+		"tindak lanjut : ".$efromdb->Tindak_Lanjut
 
 		);
 		setState($chatID,1);
-		// ."\n".
-		// "status permintaan : ".$efromdb->Status_permintaan."\n".
-		// "nama teknisi : ".$efromdb->Teknisi."\n".
-		// "keterangan : ".$efromdb->Keterangan_Teknisi."\n".
-		// "tindak lanjut : ".$efromdb->Tindak_Lanjut
+	
 	}else{
 		$output="Perintah Tidak diketahui";
 	}
