@@ -15,9 +15,6 @@ else if ($messageFromUser=="/check") {
 	$output = urlencode("masukkan MYIR atau kode registrasi pelanggan");
 	setState($chatID,2);
 }
-else if ($messageFromUser=="/state") {
-	$output = urlencode($state->state);
-}
 else{
 	if ($state->state==2) {
 		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/readone.php?myir='.$messageFromUser);
