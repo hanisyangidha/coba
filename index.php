@@ -19,11 +19,11 @@ else if ($messageFromUser=="/myir") {
 	setState($chatID,2);
 }
 else if ($messageFromUser=="/inet") {
-	$output = urlencode("Masukkan No.Internet pelanggan");
+	$output = urlencode("Masukkan Nomer Internet pelanggan");
 	
 }
 else if ($messageFromUser=="/sc") {
-	$output = urlencode("Masukkan No.SC pelanggan");
+	$output = urlencode("Masukkan Nomer SC pelanggan");
 	
 }
 else{
