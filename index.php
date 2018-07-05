@@ -11,6 +11,9 @@ $output="";
 if ($messageFromUser=="/start") {
 	$output = urlencode("Apa yang akan anda lakukan?\n/input\n/check");
 }
+else if ($messageFromUser=="/input") {
+	$output = urlencode("Masukkan username anda");
+}
 else if ($messageFromUser=="/check") {
 	$output = urlencode("Check dengan menggunakan\n/myir\n/inet\n/sc");
 }
