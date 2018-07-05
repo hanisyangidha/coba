@@ -13,6 +13,9 @@ if ($messageFromUser=="/start") {
 }
 else if ($messageFromUser=="/check") {
 	$output = urlencode("Check dengan menggunakan\n/myir\n/inet\n/sc");
+}
+else if ($messageFromUser=="/myir") {
+	$output = urlencode("masukkan myir pelanggan");
 	setState($chatID,2);
 }
 else{
