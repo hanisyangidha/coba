@@ -9,7 +9,7 @@ $state=json_decode($state);
 $messageFromUser = $update["message"]["text"];
 $output="";
 if ($messageFromUser=="/start") {
-	$output = urlencode("Pilih Fitur\n/check");
+	$output = urlencode("Apa yang akan anda lakukan?\n/input\n/check");
 }
 else if ($messageFromUser=="/check") {
 	$output = urlencode("Check dengan menggunakan\n/myir\n/inet\n/sc");
