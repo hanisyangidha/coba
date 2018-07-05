@@ -15,8 +15,16 @@ else if ($messageFromUser=="/check") {
 	$output = urlencode("Check dengan menggunakan\n/myir\n/inet\n/sc");
 }
 else if ($messageFromUser=="/myir") {
-	$output = urlencode("masukkan myir pelanggan");
+	$output = urlencode("Masukkan MYIR pelanggan");
 	setState($chatID,2);
+}
+else if ($messageFromUser=="/inet") {
+	$output = urlencode("Masukkan No.Internet pelanggan");
+	
+}
+else if ($messageFromUser=="/sc") {
+	$output = urlencode("Masukkan No.SC pelanggan");
+	
 }
 else{
 	if ($state->state==2) {
