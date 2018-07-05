@@ -20,15 +20,39 @@ else if ($messageFromUser=="/myir") {
 }
 else if ($messageFromUser=="/inet") {
 	$output = urlencode("Masukkan Nomer Internet pelanggan");
-	
+	setState($chatID,2);
 }
 else if ($messageFromUser=="/sc") {
 	$output = urlencode("Masukkan Nomer SC pelanggan");
-	
+	setState($chatID,2);
 }
 else{
 	if ($state->state==2) {
 		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/readone.php?myir='.$messageFromUser);
+		$efromdb= json_decode($fromdb);
+		$output = urlencode(
+			"myir : ".$efromdb->MYIR."\n".
+			"nomer sc : ".$efromdb->No_SC."\n".
+			"nomer internet : ".$efromdb->No_Internet."\n".
+			"nama pelanggan : ".$efromdb->Nama_Pelanggan."\n".
+			"alamat instalasi : ".$efromdb->Alamat_Instalasi."\n".
+			"tipe permintaan : ".$efromdb->Type_Permintaan."\n".
+			"kcontact : ".$efromdb->Kcontact."\n".
+			"tanggal input : ".$efromdb->Tanggal_Input."\n".
+		"status permintaan : ".$efromdb->Status_permintaan."\n".
+		"nama teknisi : ".$efromdb->Teknisi."\n".
+		"keterangan : ".$efromdb->Keterangan_Teknisi."\n".
+		"tindak lanjut : ".$efromdb->Tindak_Lanjut
+
+		);
+		setState($chatID,1);
+	
+	}else{
+		$output="Perintah Tidak diketahui";
+	}
+	
+	if ($state->state==2) {
+		$fromdb = file_get_contents('https://hunhani.000webhostapp.com/cobainet.php?inet='.$messageFromUser);
 		$efromdb= json_decode($fromdb);
 		$output = urlencode(
 			"myir : ".$efromdb->MYIR."\n".
